@@ -5,7 +5,7 @@
 'use strict';
 
 var express = require('express');
-var Twitter = require('twitter');
+
 var favicon = require('serve-favicon');
 var morgan = require('morgan');
 var compression = require('compression');
@@ -15,14 +15,6 @@ var cookieParser = require('cookie-parser');
 var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
-
-
-var client = new Twitter({
-  consumer_key: 'vfShowxWwR8K3koCy6ttfykXK',
-  consumer_secret: 'tjcwD1t2Kl1U3RfvmF6MaLfk2GT5rNWph6KwAVnQChHMLeRGug',
-  access_token_key: '1451868559-0FP96PmOJ7fNGZxpH74WOx3DIXA5XMrSb7WLYXx',
-  access_token_secret: 'qjjU34cJdSOVsKrzxGHajKognVXyhCPGD55268ARyaD6z'
-});
 
 
 module.exports = function(app) {
