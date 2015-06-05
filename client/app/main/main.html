@@ -1,21 +1,48 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
+
+<header class="hero-unit" id="banner" data-ng-if="awesomeThings.length == 0">
   <div class="container">
-    <h1>Salario++</h1>
-    <p class="lead">Top vagas++</p>
+    <h1>Aguarde, ainda não falaram nada sobre #vagas!</h1>
   </div>
 </header>
 
-<div class="container">
+
+<header class="hero-unit" id="banner" data-ng-if="awesomeThings.length > 0">
+  <div class="container">
+    <h1>{{awesomeThings[0].text}}</h1>
+    <p class="lead">
+        <span>
+          <img src="{{awesomeThings[0].user.profile_image_url_https}}" alt="{{awesomeThings[0].user.name}}">
+        </span>
+        <a href="{{awesomeThings[0].user.url}}" target="_blank" style="color:#fff">
+          @{{awesomeThings[0].user.screen_name}}
+        </a>
+      </p>
+  </div>
+</header>
+
+<div class="container"data-ng-if="awesomeThings.length > 0">
   <div class="row">
     <div class="col-lg-12">
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name || thing.text}}</a></li>
-      </ul>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-if="awesomeThings.length == 0">
-        <li><a href="#" tooltip="{{thing.info}}">Procurando vagas...</a></li>
-      </ul>
+      <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat="thing in awesomeThings">
+          <div class="thumbnail">
+            <img src="{{thing.user.profile_background_image_url_https}}">
+            <div class="caption">
+              <h3>{{thing.text}}</h3>
+                <p>
+                  <span>
+                    <img src="{{thing.user.profile_image_url_https}}" alt="{{thing.user.name}}">
+                  </span>
+                  <a href="{{thing.user.url}}" target="_blank">
+                    @{{thing.user.screen_name}}
+                  </a>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

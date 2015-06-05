@@ -16,7 +16,7 @@ require('./routes')(app);
 
 var socket = require('socket.io').listen(server);
 var Twit = require('twit');
-var twis = [];
+debugger
 var T = new Twit({
     consumer_key:'vfShowxWwR8K3koCy6ttfykXK', 
     consumer_secret:'tjcwD1t2Kl1U3RfvmF6MaLfk2GT5rNWph6KwAVnQChHMLeRGug',
@@ -25,15 +25,21 @@ var T = new Twit({
 });
 var stream1 = T.stream('statuses/filter', { track: 'vagas' });
 var stream2 = T.stream('statuses/filter', { track: 'emprego' });
+var stream3 = T.stream('statuses/filter', { track: 'empregos' });
+var stream4 = T.stream('statuses/filter', { track: 'mango' });
 socket.sockets.on('connection', function (socket) {
-  socket.emit('tweets',twis);
+  
   stream1.on('tweet', function (tweet) {
     socket.emit('tweet', tweet);
-    twis.push(tweet);
   });
   stream2.on('tweet', function (tweet) {
     socket.emit('tweet', tweet);
-    twis.push(tweet);
+  });
+  stream3.on('tweet', function (tweet) {
+    socket.emit('tweet', tweet);
+  });
+  stream4.on('tweet', function (tweet) {
+    socket.emit('tweet', tweet);
   });
 });
 // Start server

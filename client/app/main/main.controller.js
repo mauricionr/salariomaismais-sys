@@ -11,7 +11,12 @@ angular.module('salariomaismaisApp')
       var socket = io();
       socket.on('tweet', function(tweet){
         $scope.$apply(function(){
-          $scope.awesomeThings.push(tweet);  
+          $scope.awesomeThings.unshift(tweet);  
+        });
+      });
+      socket.on('tweets', function(tweet){
+        $scope.$apply(function(){
+          $scope.awesomeThings = tweet.twits;  
         });
       });
   });
