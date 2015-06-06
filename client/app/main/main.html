@@ -1,4 +1,4 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
+
 
 
 <header class="hero-unit" id="banner" data-ng-if="awesomeThings.length == 0">
@@ -7,37 +7,25 @@
   </div>
 </header>
 
-
-<header class="hero-unit" id="banner" data-ng-if="awesomeThings.length > 0">
-  <div class="container">
-    <h1>{{awesomeThings[0].text}}</h1>
-    <p class="lead">
-        <span>
-          <img src="{{awesomeThings[0].user.profile_image_url_https}}" alt="{{awesomeThings[0].user.name}}">
-        </span>
-        <a href="{{awesomeThings[0].user.url}}" target="_blank" style="color:#fff">
-          @{{awesomeThings[0].user.screen_name}}
-        </a>
-      </p>
-  </div>
-</header>
-
-<div class="container"data-ng-if="awesomeThings.length > 0">
+<div class=""data-ng-if="awesomeThings.length > 0">
   <div class="row">
     <div class="col-lg-12">
       <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="thing in awesomeThings">
           <div class="thumbnail">
-            <img src="{{thing.user.profile_background_image_url_https}}">
+            <img data-ng-if="thing.extended_entities" src="{{thing.extended_entities.media[0].media_url_https}}">
             <div class="caption">
               <h3>{{thing.text}}</h3>
                 <p>
                   <span>
                     <img src="{{thing.user.profile_image_url_https}}" alt="{{thing.user.name}}">
                   </span>
-                  <a href="{{thing.user.url}}" target="_blank">
+                  <a href="https://twitter.com/{{thing.user.screen_name}}" target="_blank">
                     @{{thing.user.screen_name}}
-                  </a>
+                  </a> 
+                </p>
+                <p data-ng-if="thing.place">
+                  em {{thing.place.full_name}}
                 </p>
             </div>
           </div>
@@ -47,4 +35,4 @@
   </div>
 </div>
 
-<div ng-include="'components/footer/footer.html'"></div>
+

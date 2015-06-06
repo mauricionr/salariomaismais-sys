@@ -3,14 +3,18 @@
 angular.module('salariomaismaisApp')
   .controller('NavbarCtrl', function ($scope, $location) {
   $scope.menu = [
-    // {
-    //   'title': 'Home',
-    //   'link': '/'
-    // },
+    {
+      'title': 'Home',
+      'link': '/'
+    },
     // {
     //   'title': 'Vagas',
     //   'link': '/vagas'
-    // }
+    // },
+    {
+      'title': 'Sobre',
+      'link': '/about'
+    }
   ];
 
   $scope.isCollapsed = true;

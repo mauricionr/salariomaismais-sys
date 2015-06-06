@@ -1,3 +1,4 @@
+/* global angular */
 /* global io */
 'use strict';
 
@@ -11,7 +12,8 @@ angular.module('salariomaismaisApp')
       var socket = io();
       socket.on('tweet', function(tweet){
         $scope.$apply(function(){
-          $scope.awesomeThings.unshift(tweet);  
+          $scope.awesomeThings.unshift(tweet);
+          $scope.current = tweet;
         });
       });
       socket.on('tweets', function(tweet){

@@ -24,21 +24,13 @@ var T = new Twit({
     access_token_secret:'qjjU34cJdSOVsKrzxGHajKognVXyhCPGD55268ARyaD6z'
 });
 var stream1 = T.stream('statuses/filter', { track: 'vagas' });
-var stream2 = T.stream('statuses/filter', { track: 'emprego' });
-var stream3 = T.stream('statuses/filter', { track: 'empregos' });
-var stream4 = T.stream('statuses/filter', { track: 'mango' });
+var stream2 = T.stream('statuses/filter', { track: 'empregos' });
+
 socket.sockets.on('connection', function (socket) {
-  
   stream1.on('tweet', function (tweet) {
     socket.emit('tweet', tweet);
   });
   stream2.on('tweet', function (tweet) {
-    socket.emit('tweet', tweet);
-  });
-  stream3.on('tweet', function (tweet) {
-    socket.emit('tweet', tweet);
-  });
-  stream4.on('tweet', function (tweet) {
     socket.emit('tweet', tweet);
   });
 });
