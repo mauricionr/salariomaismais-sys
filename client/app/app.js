@@ -1,11 +1,12 @@
+/// <reference path="../../typings/angularjs/angular.d.ts"/>
+/// <reference path="../../typings/jquery/jquery.d.ts"/>
 'use strict';
 
 angular.module('salariomaismaisApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute',
-  'ui.bootstrap'
+  'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -15,3 +16,5 @@ angular.module('salariomaismaisApp', [
 
     $locationProvider.html5Mode(true);
   });
+  
+  

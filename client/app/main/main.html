@@ -1,13 +1,102 @@
-
-
-
-<header class="hero-unit" id="banner" data-ng-if="awesomeThings.length == 0">
-  <div class="container">
-    <h1>Aguarde, ainda não falaram nada sobre #vagas!</h1>
+<main>
+  <div class="sortList">
+    <div class="container">
+      <ul class="tabs" style="width: 100%;">
+        <!--<li class="tab col s3" style="width: 25%;">
+          <a class="active" href="#test1"><i class="small mdi-action-toc"></i><span>Principais</span></a>
+        </li>-->
+        <li class="tab col s3" style="width: 100%;">
+          <a href="/"><i class="small mdi-action-history"></i><span>Mais Recentes</span></a>
+        </li>
+        <!--<li class="tab col s3" style="width: 25%;">
+          <a href="#test3"><i class="small mdi-action-trending-up"></i><span>Mais Relevantes</span></a>
+        </li>-->
+        <!--<li class="tab col s3" style="width: 25%;">
+          <a href="#test4"><i class="small mdi-action-favorite"></i><span>Favoritos</span></a>
+        </li>-->
+        <!--<div class="indicator" style="right: 596px; left: 0px;"></div>-->
+      </ul>
+    </div>
   </div>
-</header>
-
-<div class=""data-ng-if="awesomeThings.length > 0">
+  <div class="container">
+    <!--<div class="section" id="searchField">
+      <nav class="grey lighten-3">
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required="">
+              <label for="search" class="">
+                <i class="mdi-action-search"></i>
+              </label>
+              <i class="mdi-navigation-close"></i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>-->
+    <!--<div class="popAlert" data-ng-init="close = false" data-ng-show="close == false">
+      <div class="popContent">
+        <i class="large mdi-action-face-unlock"></i>
+        <h4 style="margin-top:0">Melhore seus resultados</h4>
+        <p>Adicione novos termos para filtrar as postagens e encontrar a vaga que mais combina com você!</p>
+      </div>
+      <a class="popClose" data-ng-click="close = true">
+        	<i class="small mdi-navigation-close"></i>
+        </a>
+    </div>-->
+    <!--<div class="section" id="searchLabels">
+      <div class="switch">
+        <label>Off
+          <input type="checkbox">
+          <span class="lever"></span>On</label>
+      </div>
+      <a href="#">Administração</a>
+      <a href="#">Negócios</a>
+      <a href="#">Tecnologia</a>
+      <a href="#">Marketing</a>
+      <a href="#">TI</a>
+      <a href="#">Informática</a>
+    </div>-->
+    <div class="container center-align loadingHold" data-ng-if="awesomeThings.length == 0">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="contentPosts">
+      <div class="row">
+        <div class="col s12" data-ng-class="{m3:!thing.extended_entities,m6:thing.extended_entities}" ng-repeat="thing in awesomeThings">
+          <div class="card">
+            <div class="card-image" 
+              data-ng-class="{'no-image':!thing.extended_entities}" ramdon-color>
+              <a href="#">
+                  <img src="/assets/images/blank.png" data-ng-if="!thing.extended_entities">
+                  <img src="{{thing.extended_entities.media[0].media_url_https}}" data-ng-if="thing.extended_entities">
+                  <span class="card-title">{{thing.text}}</span>
+              </a>
+              <div class="actionsCard">
+                <a href="#"><i class="mdi-action-favorite-outline"></i></a>
+                <a href="#"><i class="mdi-social-share"></i></a>
+                <a href="#"><i class="mdi-content-send"></i></a>
+                <a href="#"><i class="mdi-action-language"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!--<div class="" data-ng-if="awesomeThings.length > 0">
   <div class="row">
     <div class="col-lg-12">
       <div class="row">
@@ -16,23 +105,19 @@
             <img data-ng-if="thing.extended_entities" src="{{thing.extended_entities.media[0].media_url_https}}">
             <div class="caption">
               <h3>{{thing.text}}</h3>
-                <p>
-                  <span>
-                    <img src="{{thing.user.profile_image_url_https}}" alt="{{thing.user.name}}">
-                  </span>
-                  <a href="https://twitter.com/{{thing.user.screen_name}}" target="_blank">
+              <p>
+                <span>
+                  <img src="{{thing.user.profile_image_url_https}}" alt="{{thing.user.name}}">
+                </span>
+                <a href="https://twitter.com/{{thing.user.screen_name}}" target="_blank">
                     @{{thing.user.screen_name}}
-                  </a> 
-                </p>
-                <p data-ng-if="thing.place">
-                  em {{thing.place.full_name}}
-                </p>
+                  </a>
+              </p>
+              <p data-ng-if="thing.place">em {{thing.place.full_name}}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
+</div>-->
