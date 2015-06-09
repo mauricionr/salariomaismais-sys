@@ -1,6 +1,6 @@
 <main>
   <div class="sortList">
-    <div class="container">
+    <div class="col s12">
       <ul class="tabs" style="width: 100%;">
         <!--<li class="tab col s3" style="width: 25%;">
           <a class="active" href="#test1"><i class="small mdi-action-toc"></i><span>Principais</span></a>
@@ -18,13 +18,13 @@
       </ul>
     </div>
   </div>
-  <div class="container">
-    <!--<div class="section" id="searchField">
+  <div class="col s12">
+    <div class="section" id="searchField">
       <nav class="grey lighten-3">
         <div class="nav-wrapper">
           <form>
             <div class="input-field">
-              <input id="search" type="search" required="">
+              <input id="search" data-ng-model="query" type="search" required="">
               <label for="search" class="">
                 <i class="mdi-action-search"></i>
               </label>
@@ -33,7 +33,7 @@
           </form>
         </div>
       </nav>
-    </div>-->
+    </div>
     <!--<div class="popAlert" data-ng-init="close = false" data-ng-show="close == false">
       <div class="popContent">
         <i class="large mdi-action-face-unlock"></i>
@@ -74,7 +74,7 @@
     </div>
     <div class="section" id="contentPosts">
       <div class="row">
-        <div class="col s12" data-ng-class="{m3:!thing.extended_entities,m6:thing.extended_entities}" ng-repeat="thing in awesomeThings">
+        <div class="col s12" data-ng-class="{m3:!thing.extended_entities,m6:thing.extended_entities}" ng-repeat="thing in awesomeThings | filter:query">
           <div class="card">
             <div class="card-image" 
               data-ng-class="{'no-image':!thing.extended_entities}" ramdon-color>
