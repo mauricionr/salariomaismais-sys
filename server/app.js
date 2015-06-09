@@ -16,7 +16,7 @@ require('./routes')(app);
 
 var socket = require('socket.io').listen(server);
 var Twit = require('twit');
-debugger
+
 var T = new Twit({
     consumer_key:'vfShowxWwR8K3koCy6ttfykXK', 
     consumer_secret:'tjcwD1t2Kl1U3RfvmF6MaLfk2GT5rNWph6KwAVnQChHMLeRGug',
