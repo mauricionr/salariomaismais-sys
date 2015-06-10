@@ -76,14 +76,17 @@
       <div class="row">
         <div class="col s12" data-ng-class="{m3:!thing.extended_entities,m6:thing.extended_entities}" ng-repeat="thing in awesomeThings | filter:query">
           <div class="card">
-            <div class="card-image" 
-              data-ng-class="{'no-image':!thing.extended_entities}" ramdon-color>
-              <a href="#">
-                  <img src="/assets/images/blank.png" data-ng-if="!thing.extended_entities">
+            <div 
+              data-ng-class="{'no-image':!thing.extended_entities, 'card-image':!thing.extended_entities}" ramdon-color>
+              <span>
                   <img src="{{thing.extended_entities.media[0].media_url_https}}" data-ng-if="thing.extended_entities">
-                  <span class="card-title">{{thing.text}}</span>
-              </a>
-              <div class="actionsCard">
+                  <span>{{thing.user.description}}</span>
+                  <span class="card-title">{{thing.user.screen_name}}</span>
+              </span>
+              <div class="card-content">
+                {{thing.text}}
+              </div>
+              <div class="card-action">
                 <a href="#"><i class="mdi-action-favorite-outline"></i></a>
                 <a href="#"><i class="mdi-social-share"></i></a>
                 <a href="#"><i class="mdi-content-send"></i></a>
